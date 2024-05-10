@@ -28,3 +28,19 @@ export const fetch = async(req, res) => {
     }
 
 };
+
+export const update = async(req, res) => {
+    try {
+        const id = req.params.id;
+        const userExist = await User.findOne({ _id: id});
+
+        if(!userExist) {
+          return res.status(404).json({ error: "Usuario no actualizado!" });
+        }
+        const updateUser = await User.findByIdAndUpdate(id, req.body, {new: true})
+
+        res.status(200).json(updateUser);
+    } catch (error) {
+        res.status(500).json({ error: "Internal Server error." });
+    }
+}
