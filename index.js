@@ -3,6 +3,10 @@ import mongoose from "mongoose"
 import bodyParser from "body-parser";
 import dotenv from "dotenv"
 import route from "./routes/userRoute.js";
+import routeParent from "./routes/parentRoute.js";
+import routeSchool from "./routes/schoolRoute.js";
+import routeWorker from "./routes/workerRoute.js";
+
 
 const app = express();
 
@@ -23,3 +27,6 @@ mongoose.connect(MONGOURL).then( ()=> {
 .catch((error) => console.log(error));
 
 app.use("/api/user", route);
+app.use("/api/parent", routeParent);
+app.use("/api/school", routeSchool);
+app.use("/api/worker", routeWorker);

@@ -1,22 +1,22 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
+const schoolSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    last_name: {
+    address: {
         type: String,
         required: true
     },
-    document_type: {
+    sede: {
         type: String,
         required: true
     },
-    document_number: {
+    ruc: {
         type: String,
         required: true
     },
 })
 
-export default mongoose.model("users", userSchema);
+export default mongoose.model("school", schoolSchema);
