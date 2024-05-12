@@ -6,7 +6,7 @@ import route from "./routes/userRoute.js";
 import routeParent from "./routes/parentRoute.js";
 import routeSchool from "./routes/schoolRoute.js";
 import routeWorker from "./routes/workerRoute.js";
-
+import routeStudent from "./routes/studentRoute.js";
 
 const app = express();
 
@@ -30,3 +30,4 @@ app.use("/api/user", route);
 app.use("/api/parent", routeParent);
 app.use("/api/school", routeSchool);
 app.use("/api/worker", routeWorker);
+app.use("/api/student", routeStudent);

@@ -4,10 +4,10 @@ export const create = async(req, res) => {
     try {
         
         const parentData = new Parent(req.body);
-        const { document_number } = parentData;
-        const parentExist = await Parent.findOne({ document_number });
+        const { number_document } = parentData;
+        const parentExist = await Parent.findOne({ number_document });
         if(parentExist){
-            return res.status(400).json( { message: "Parent already exists."} );
+            return res.status(400).json( { message: "El usuario ya existe."} );
         }
         const savedParent = await parentData.save();
         res.status(200).json(savedParent);
