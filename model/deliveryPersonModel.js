@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
-const parentSchema = new mongoose.Schema({
-    id_school: {
+const deliveryPersonSchema = new mongoose.Schema({
+    id_parent: {
+        type: String,
+        required: true
+    },
+    id_student: {
         type: String,
         required: true
     },
@@ -21,30 +25,18 @@ const parentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    email: {
+    photo_frontal: {
         type: String,
         required: true
     },
-    address: {
+    photo_rigth: {
         type: String,
         required: true
     },
-    address: {
-        type: String,
-        required: true
-    },
-    number_cellphone: {
-        type: String,
-        required: true
-    },
-    number_emergency: {
-        type: String,
-        required: true
-    },
-    password: {
+    photo_left: {
         type: String,
         required: true
     },
 })
 
-export default mongoose.model("parent", parentSchema);
+export default mongoose.model("delivery_person", deliveryPersonSchema);
