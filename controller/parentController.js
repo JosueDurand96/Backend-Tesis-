@@ -18,6 +18,7 @@ export const create = async(req, res) => {
 
 export const login = async(req, res) => {
     try {
+        
         const { email, password } = req.body;
         const data = await Parent.findOne({ email });
 
