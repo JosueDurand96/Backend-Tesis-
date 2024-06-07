@@ -36,7 +36,7 @@ export const update = async(req, res) => {
         const studentExist = await Student.findOne({ _id: id});
 
         if(!studentExist) {
-          return res.status(404).json({ error: "Colegio no actualizado!" });
+          return res.status(404).json({ error: "No se encontra colegio con ese ID!" });
         }
         const updateStudent = await Student.findByIdAndUpdate(id, req.body, {new: true})
         res.status(201).json({ message: "Los datos del estudiante ha sido actualizado correctamente!", updateStudent});
@@ -50,7 +50,7 @@ export const deleteStudent = async(req, res) => {
         const id = req.params.id;
         const studentExist = await Student.findOne({ _id: id});
         if(!studentExist) {
-            return res.status(404).json({ error: "Estudiante no eliminado!" });
+            return res.status(404).json({ error: "No se encontra alumno con ese ID!" });
         }
         await Student.findByIdAndDelete(id);
         res.status(201).json({ message: "Estudiante eliminado correctamente!"});

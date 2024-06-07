@@ -21,7 +21,7 @@ export const fetch = async(req, res) => {
         if(school.length === 0) {
           return res.status(404).json({ error: "Colegio no encontrado!" });
         }
-        res.status(200).json(school);
+        res.status(200).json({ data: school});
     } catch(error){
         res.status(500).json({ error: "Internal Server error." });
     }
@@ -37,7 +37,7 @@ export const update = async(req, res) => {
           return res.status(404).json({ error: "Colegio no actualizado!" });
         }
         const updateSchool = await School.findByIdAndUpdate(id, req.body, {new: true})
-        res.status(200).json(updateSchool);
+        res.status(201).json({ message: "Los datos del estudiante ha sido actualizado correctamente!", updateSchool});
     } catch (error) {
         res.status(500).json({ error: "Internal Server error." });
     }
