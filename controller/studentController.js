@@ -7,7 +7,7 @@ export const create = async(req, res) => {
         const { number_document } = studentData;
         const studentExist = await Student.findOne({ number_document });
         if(studentExist){
-            return res.status(400).json( { message: "El usuario ya existe."} );
+            return res.status(400).json( { message: "El estudiante ya existe."} );
         }
         const savedParent = await studentData.save();
         res.status(200).json(savedParent);
@@ -16,3 +16,46 @@ export const create = async(req, res) => {
         res.status(500).json({ error: "Internal server error."});
     }
 } 
+
+export const fetch = async(req, res) => {
+    try {
+        const student = await Student.find();
+        if(student.length === 0) {
+          return res.status(404).json({ error: "Estudiante no encontrado!" });
+        }
+        res.status(200).json(student);
+    } catch(error){
+        res.status(500).json({ error: "Internal Server error." });
+    }
+
+};
+
+export const update = async(req, res) => {
+    try {
+        const id = req.params.id;
+        const studentExist = await Student.findOne({ _id: id});
+
+        if(!studentExist) {
+          return res.status(404).json({ error: "Colegio no actualizado!" });
+        }
+        const updateStudent = await Student.findByIdAndUpdate(id, req.body, {new: true})
+        res.status(201).json({ message: "Los datos del estudiante ha sido actualizado correctamente!", updateStudent});
+    } catch (error) {
+        res.status(500).json({ error: "Internal Server error." });
+    }
+}
+
+export const deleteStudent = async(req, res) => {
+    try {
+        const id = req.params.id;
+        const studentExist = await Student.findOne({ _id: id});
+        if(!studentExist) {
+            return res.status(404).json({ error: "Estudiante no eliminado!" });
+        }
+        await Student.findByIdAndDelete(id);
+        res.status(201).json({ message: "Estudiante eliminado correctamente!"});
+
+    } catch (error) {
+        res.status(500).json({ error: "Internal Server error." });
+    }
+}

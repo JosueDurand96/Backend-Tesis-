@@ -48,7 +48,7 @@ export const deleteSchool = async(req, res) => {
         const id = req.params.id;
         const schoolExist = await School.findOne({ _id: id});
         if(!schoolExist) {
-            return res.status(404).json({ error: "Colegio no actualizado!" });
+            return res.status(404).json({ error: "El colegio no ha sido eliminado!" });
         }
         await School.findByIdAndDelete(id);
         res.status(201).json({ message: "Colegio eliminado correctamente"});
