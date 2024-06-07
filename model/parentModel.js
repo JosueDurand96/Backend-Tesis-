@@ -47,4 +47,4 @@ const parentSchema = new mongoose.Schema({
     },
 })
 
-export default mongoose.model("parent", parentSchema);
+export default mongoose.model("parents", parentSchema);

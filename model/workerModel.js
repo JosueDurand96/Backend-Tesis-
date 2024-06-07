@@ -35,4 +35,4 @@ const workerSchema = new mongoose.Schema({
     },
 })
 
-export default mongoose.model("worker", workerSchema);
+export default mongoose.model("workers", workerSchema);
