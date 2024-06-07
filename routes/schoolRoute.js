@@ -4,8 +4,8 @@ import { create, fetch, update, deleteSchool } from "../controller/schoolControl
 const routeSchool = express.Router();
 
 routeSchool.post("/create", create);
-route.get("/getAll", fetch);
-route.put("/update/:id", update);
-route.delete("/delete/:id", deleteSchool);
+routeSchool.get("/getAll", fetch);
+routeSchool.put("/update/:id", update);
+routeSchool.delete("/delete/:id", deleteSchool);
 
 export default routeSchool;
