@@ -19,4 +19,4 @@ const schoolSchema = new mongoose.Schema({
     },
 })
 
-export default mongoose.model("school", schoolSchema);
+export default mongoose.model("schools", schoolSchema);
