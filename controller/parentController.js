@@ -27,7 +27,7 @@ export const login = async(req, res) => {
             return res.status(200).json({ message: 'Usuario logueado correctamente' });
             
         } else {
-            return res.status(401).json({ message: 'Au' });
+            return res.status(401).json({ message: 'El usuario no se pudo loguear!' });
         }  
 
     } catch (error) {

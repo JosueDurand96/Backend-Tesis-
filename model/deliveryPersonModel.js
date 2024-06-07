@@ -39,4 +39,4 @@ const deliveryPersonSchema = new mongoose.Schema({
     },
 })
 
-export default mongoose.model("delivery_person", deliveryPersonSchema);
+export default mongoose.model("delivery_persons", deliveryPersonSchema);

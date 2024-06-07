@@ -23,7 +23,7 @@ export const fetch = async(req, res) => {
         if(student.length === 0) {
           return res.status(404).json({ error: "Estudiante no encontrado!" });
         }
-        res.status(200).json(student);
+        res.status(200).json({ data: student});
     } catch(error){
         res.status(500).json({ error: "Internal Server error." });
     }
