@@ -5,7 +5,7 @@ export const create = async(req, res) => {
         
         const movieData = new MoviePerson(req.body);
         const { name } = movieData;
-        const movieExist = await DeliveryPerson.findOne({ name });
+        const movieExist = await MoviePerson.findOne({ name });
         if(movieExist){
             return res.status(400).json( { message: "La pelicula ya existe!"} );
         }
