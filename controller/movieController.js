@@ -1,11 +1,10 @@
-import MoviePerson from "../model/movieModel.js"
+import Movie from "../model/movieModel.js"
 
 export const create = async(req, res) => {
     try {
-        
-        const movieData = new MoviePerson(req.body);
+        const movieData = new Movie(req.body);
         const { name } = movieData;
-        const movieExist = await MoviePerson.findOne({ name });
+        const movieExist = await Movie.findOne({ name });
         if(movieExist){
             return res.status(400).json( { message: "La pelicula ya existe!"} );
         }
@@ -18,7 +17,7 @@ export const create = async(req, res) => {
 
 export const fetch = async(req, res) => {
     try {
-        const movie = await MoviePerson.find();
+        const movie = await Movie.find();
         if(movie.length === 0) {
           return res.status(404).json({ error: "Pelicula no encontrado!" });
         }
