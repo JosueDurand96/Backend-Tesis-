@@ -8,6 +8,7 @@ import routeSchool from "./routes/schoolRoute.js";
 import routeWorker from "./routes/workerRoute.js";
 import routeStudent from "./routes/studentRoute.js";
 import routeDeliveryPerson from "./routes/deliveryPersonRoute.js";
+import routeMovie from "./routes/movieRoute.js";
 
 const app = express();
 
@@ -33,3 +34,5 @@ app.use("/api/school", routeSchool);
 app.use("/api/worker", routeWorker);
 app.use("/api/student", routeStudent);
 app.use("/api/delivery_people", routeDeliveryPerson);
+app.use("/api/delivery_people", routeDeliveryPerson);
+app.use("/api/movie", routeMovie);
