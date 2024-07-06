@@ -2,9 +2,13 @@ import mongoose from "mongoose";
 
 const movieSchema = new mongoose.Schema({
     image: {
-        image: String,
-        name: String
-    }
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
 })
 
 export default mongoose.model("movie", movieSchema);
