@@ -4,7 +4,7 @@ export const create = async(req, res) => {
     try {
         const candyData = new Candy(req.body);
         const { title } = candyData;
-        const candyExist = await candyData.findOne({ title });
+        const candyExist = await Candy.findOne({ title });
         if(candyExist){
             return res.status(400).json( { message: "El producto ya existe!"} );
         }
