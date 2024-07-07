@@ -6,12 +6,11 @@ export const create = async(req, res) => {
         const { name } = payData;
         const payExist = await Pay.findOne({ name });
         if(payExist){
-            const savedPay = await payData.save();
-            res.status(200).json(savedPay);
-        } else {
-            return res.status(400).json( { message: "Pago ya existe!"} );
-        }
-        
+            return res.status(400).json( { message: "Pago ya existe!"} );  
+        } 
+        const savedPay = await payData.save();
+        res.status(200).json(savedPay);
+
     } catch (error) {
         res.status(500).json({ error: "Internal server error."});
     }
