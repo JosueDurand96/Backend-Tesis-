@@ -11,6 +11,7 @@ import routeDeliveryPerson from "./routes/deliveryPersonRoute.js";
 import routeMovie from "./routes/movieRoute.js";
 import routePeli from "./routes/peliRoute.js";
 import routeCandy from "./routes/candyStoreRoute.js";
+import routePay from "./routes/payRoute.js";
 
 const app = express();
 
@@ -40,3 +41,4 @@ app.use("/api/delivery_people", routeDeliveryPerson);
 app.use("/api/movie", routeMovie);
 app.use("/api/peli", routePeli);
 app.use("/api/candy", routeCandy);
+app.use("/api/pay", routeCandy);
