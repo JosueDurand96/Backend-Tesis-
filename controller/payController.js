@@ -2,14 +2,14 @@ import Pay from "../model/paymentModel.js"
 
 export const create = async(req, res) => {
     try {
-        const peliData = new Pay(req.body);
-        const { name } = peliData;
-        const peliExist = await Pay.findOne({ name });
-        if(peliExist){
-            const savedPeli = await peliData.save();
-            res.status(200).json(savedPeli);
+        const payData = new Pay(req.body);
+        const { name } = payData;
+        const payExist = await Pay.findOne({ name });
+        if(payExist){
+            const savedPay = await payData.save();
+            res.status(200).json(savedPay);
         } else {
-            return res.status(400).json( { message: "La pelicula ya existe!"} );
+            return res.status(400).json( { message: "Pago ya existe!"} );
         }
         
     } catch (error) {
