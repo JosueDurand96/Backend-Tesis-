@@ -20,7 +20,7 @@ const candySchema = new mongoose.Schema({
     cantidad: {
         type: Int32Array,
         required: true
-    } 
+    } ,
 })
 
 export default mongoose.model("candy", candySchema);
