@@ -23,4 +23,4 @@ const candySchema = new mongoose.Schema({
     },
 })
 
-export default mongoose.model("candy", candySchema);
+export default mongoose.model("candies", candySchema);
