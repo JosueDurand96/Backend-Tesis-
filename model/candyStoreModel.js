@@ -18,9 +18,9 @@ const candySchema = new mongoose.Schema({
         required: true
     },
     cantidad: {
-        type: Int32Array,
+        type: String,
         required: true
-    } ,
+    },
 })
 
 export default mongoose.model("candy", candySchema);
